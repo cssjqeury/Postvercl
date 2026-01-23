@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PostVercl - Content Management for the Modern Creator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #020617;
+            overflow-x: hidden;
+        }
+        .glassmorphism {
+            background: rgba(2, 6, 23, 0.8);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(59, 130, 246, 0.1);
+        }
+        
+        /* Animated Background Graphics */
+        .animated-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            overflow: hidden;
+        }
+        
+        .gradient-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.3;
+            animation: float 20s ease-in-out infinite;
+        }
+        
+        .orb-1 {
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, #3b82f6 0%, transparent 70%);
+            top: -200px;
+            left: -200px;
+            animation-delay: 0s;
+        }
+        
+        .orb-2 {
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, #8b5cf6 0%, transparent 70%);
+            bottom: -150px;
+            right: -150px;
+            animation-delay: 5s;
+        }
+        
+        .orb-3 {
+            width: 350px;
+            height: 350px;
+            background: radial-gradient(circle, #06b6d4 0%, transparent 70%);
+            top: 50%;
+            right: 10%;
+            animation-delay: 10s;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(30px, -30px) scale(1.1); }
+            66% { transform: translate(-20px, 20px) scale(0.9); }
+        }
+        
+        /* Grid Pattern */
+        .grid-pattern {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(59, 130, 246, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(59, 130, 246, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            z-index: 0;
+        }
+        
+        /* Content Wrapper */
+        .content-wrapper {
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Modal Styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(2, 6, 23, 0.9);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .modal-overlay.active {
+            display: flex;
+            opacity: 1;
+        }
+        
+        .modal-content {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            border-radius: 24px;
+            padding: 2rem;
+            max-width: 500px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+            box-shadow: 0 20px 60px rgba(59, 130, 246, 0.2);
+        }
+        
+        .modal-overlay.active .modal-content {
+            transform: scale(1);
+        }
+        
+        /* Form Styles */
+        .form-input {
+            background: rgba(2, 6, 23, 0.6);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            border-radius: 12px;
+            padding: 0.875rem 1rem;
+            color: white;
+            width: 100%;
+            transition: all 0.3s ease;
+        }
+        
+        .form-input:focus {
+            outline: none;
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+        
+        .form-input::placeholder {
+            color: #71717a;
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease-out;
+        }
+        
+        .delay-1 { animation-delay: 0.1s; }
+        .delay-2 { animation-delay: 0.2s; }
+        .delay-3 { animation-delay: 0.3s; }
+        
+        /* Feature Card Hover */
+        .feature-card {
+            transition: all 0.3s ease;
+            transform: translateY(0);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(59, 130, 246, 0.2);
+        }
+        
+        /* Glow Effect */
+        .glow {
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+        }
+        
+        .glow:hover {
+            box-shadow: 0 0 30px rgba(59, 130, 246, 0.5);
+        }
+        
+        /* Scroll Animations */
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+        }
+        
+        .scroll-reveal.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Logo Styles */
+        .logo-svg {
+            transition: transform 0.3s ease;
+        }
+        
+        .logo-svg:hover {
+            transform: scale(1.1);
+        }
+        
+        /* Custom Gradient Classes */
+        .gradient-text {
+            background: linear-gradient(to right, #3b82f6, #8b5cf6);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .gradient-line {
+            background: linear-gradient(to right, #3b82f6, #8b5cf6);
+        }
+        
+        .gradient-card {
+            background: linear-gradient(to bottom right, #0f172a, #1e293b);
+        }
+        
+        .gradient-icon-bg {
+            background: linear-gradient(to bottom right, #3b82f6, #2563eb);
+        }
+        
+        .gradient-icon-overlay {
+            background: linear-gradient(to bottom right, #3b82f6, transparent);
+        }
+        
+        .gradient-pricing-bg {
+            background: linear-gradient(to bottom, #0f172a, #020617);
+        }
+        
+        .gradient-pricing-card {
+            background: linear-gradient(to bottom right, #020617, #0f172a);
+        }
+        
+        .gradient-api-card {
+            background: linear-gradient(to bottom right, #0f172a, #1e293b);
+        }
+        
+        .gradient-api-line {
+            background: linear-gradient(to right, #3b82f6, #8b5cf6, #3b82f6);
+        }
+        
+        .gradient-cta-bg {
+            background: linear-gradient(to bottom, #0f172a, #020617, #0f172a);
+        }
+        
+        .gradient-button {
+            background: linear-gradient(to right, #3b82f6, #2563eb);
+        }
+        
+        .gradient-button:hover {
+            background: linear-gradient(to right, #2563eb, #1d4ed8);
+        }
+    </style>
+</head>
+<body class="text-white">
+    <!-- Animated Background -->
+    <div class="animated-bg">
+        <div class="grid-pattern"></div>
+        <div class="gradient-orb orb-1"></div>
+        <div class="gradient-orb orb-2"></div>
+        <div class="gradient-orb orb-3"></div>
+    </div>
+    
+    <div class="content-wrapper">
+    <!-- Navbar -->
+    <nav class="glassmorphism fixed top-0 left-0 right-0 z-50 px-6 py-4">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-3 hover:opacity-80 transition-opacity">
+                <img src="logo.png" alt="PostVercl Logo" class="logo-svg h-9 w-9 object-contain" style="width: 100px; height: 60px;;">
+                <span class="text-2xl font-bold text-white" style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; font-size: 28px;">PostVercl</span>
+            </a>
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="#features" class="text-[#71717a] hover:text-[#3b82f6] transition-colors">Features</a>
+                <a href="#pricing" class="text-[#71717a] hover:text-[#3b82f6] transition-colors">Pricing</a>
+                <a href="#api" class="text-[#71717a] hover:text-[#3b82f6] transition-colors">API</a>
+                <a href="privacy.html" class="text-[#71717a] hover:text-[#3b82f6] transition-colors">Privacy</a>
+            </div>
+            <button class="md:hidden text-[#71717a] hover:text-[#3b82f6]">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-20 px-6 relative">
+        <!-- Decorative Elements -->
+        <div class="absolute top-20 left-10 w-72 h-72 bg-[#3b82f6] opacity-10 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-20 right-10 w-96 h-96 bg-[#8b5cf6] opacity-10 rounded-full blur-3xl"></div>
+        
+        <div class="max-w-4xl mx-auto text-center relative z-10">
+            <div class="inline-block mb-6 px-4 py-2 bg-[#3b82f6] bg-opacity-10 border border-[#3b82f6] border-opacity-30 rounded-full text-sm text-[#3b82f6] fade-in-up">
+                <i class="fas fa-clock mr-2"></i>
+                Coming Soon
+            </div>
+            <h1 class="text-5xl md:text-6xl font-bold mb-6 leading-tight fade-in-up">
+                Content Management for the <span class="gradient-text">Modern Creator</span>
+            </h1>
+            <p class="text-xl md:text-2xl text-[#71717a] mb-12 leading-relaxed fade-in-up delay-1">
+                A centralized studio to manage, optimize, and schedule your TikTok content with data-driven precision.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <button onclick="openModal()" class="bg-[#3b82f6] hover:bg-[#2563eb] text-white px-8 py-4 rounded-lg font-semibold transition-all glow fade-in-up delay-2 transform hover:scale-105">
+                    <i class="fas fa-bell mr-2"></i>
+                    Notify Me
+                </button>
+                <a href="#features" class="border border-[#71717a] hover:border-[#3b82f6] text-white px-8 py-4 rounded-lg font-semibold transition-all fade-in-up delay-3 transform hover:scale-105">
+                    <i class="fas fa-arrow-down mr-2"></i>
+                    Learn More
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Feature Grid -->
+    <section id="features" class="py-20 px-6 relative">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16 scroll-reveal">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">Powerful Features for Creators</h2>
+                <div class="w-24 h-1 gradient-line mx-auto rounded-full"></div>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Feature 1: Direct Publishing -->
+                <div class="feature-card gradient-card border border-[#1e293b] rounded-xl p-8 hover:border-[#3b82f6] scroll-reveal">
+                    <div class="w-16 h-16 gradient-icon-bg bg-opacity-20 rounded-lg flex items-center justify-center mb-6 relative overflow-hidden">
+                        <div class="absolute inset-0 gradient-icon-overlay opacity-20 animate-pulse"></div>
+                        <i class="fas fa-paper-plane text-3xl relative z-10"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Direct Publishing</h3>
+                    <p class="text-[#71717a] leading-relaxed">
+                        Schedule content directly to your TikTok profile via secure API. No manual uploads needed—automate your content calendar with precision.
+                    </p>
+                </div>
+
+                <!-- Feature 2: Creator Analytics -->
+                <div class="feature-card gradient-card border border-[#1e293b] rounded-xl p-8 hover:border-[#3b82f6] scroll-reveal">
+                    <div class="w-16 h-16 gradient-icon-bg bg-opacity-20 rounded-lg flex items-center justify-center mb-6 relative overflow-hidden">
+                        <div class="absolute inset-0 gradient-icon-overlay opacity-20 animate-pulse"></div>
+                        <i class="fas fa-chart-line text-3xl relative z-10"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Creator Analytics</h3>
+                    <p class="text-[#71717a] leading-relaxed">
+                        Real-time stats on video performance and follower growth. Make data-driven decisions to optimize your content strategy.
+                    </p>
+                </div>
+
+                <!-- Feature 3: Media Cloud -->
+                <div class="feature-card gradient-card border border-[#1e293b] rounded-xl p-8 hover:border-[#3b82f6] scroll-reveal">
+                    <div class="w-16 h-16 gradient-icon-bg bg-opacity-20 rounded-lg flex items-center justify-center mb-6 relative overflow-hidden">
+                        <div class="absolute inset-0 gradient-icon-overlay opacity-20 animate-pulse"></div>
+                        <i class="fas fa-cloud text-3xl relative z-10"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Media Cloud</h3>
+                    <p class="text-[#71717a] leading-relaxed">
+                        A private library for all your raw assets and hooks. Organize, store, and access your content from anywhere.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-20 px-6 gradient-pricing-bg relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute top-0 left-1/4 w-64 h-64 bg-[#3b82f6] rounded-full blur-3xl"></div>
+            <div class="absolute bottom-0 right-1/4 w-64 h-64 bg-[#8b5cf6] rounded-full blur-3xl"></div>
+        </div>
+        <div class="max-w-4xl mx-auto text-center relative z-10">
+            <div class="scroll-reveal">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">Simple, Transparent Pricing</h2>
+                <p class="text-[#71717a] mb-12 text-lg">Choose the plan that fits your needs</p>
+            </div>
+            <div class="gradient-pricing-card border-2 border-[#3b82f6] rounded-2xl p-8 max-w-md mx-auto scroll-reveal relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-[#3b82f6] opacity-10 rounded-full blur-2xl"></div>
+                <div class="relative z-10">
+                    <div class="inline-block mb-4 px-3 py-1 bg-[#3b82f6] bg-opacity-20 text-[#3b82f6] text-xs font-semibold rounded-full">
+                        COMING SOON
+                    </div>
+                    <h3 class="text-3xl font-bold mb-2">Coming Soon</h3>
+                    <p class="text-[#71717a] mb-6">Be the first to know when we launch</p>
+                    <button onclick="openModal()" class="bg-[#3b82f6] hover:bg-[#2563eb] text-white px-8 py-3 rounded-lg font-semibold transition-all glow inline-block transform hover:scale-105">
+                        <i class="fas fa-bell mr-2"></i>
+                        Notify Me
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- API Section -->
+    <section id="api" class="py-20 px-6 relative">
+        <div class="max-w-4xl mx-auto text-center">
+            <div class="scroll-reveal">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">Developer-Friendly API</h2>
+                <p class="text-[#71717a] mb-8 text-lg">
+                    Integrate PostVercl's powerful content management capabilities into your own applications.
+                </p>
+            </div>
+            <div class="gradient-api-card border border-[#1e293b] rounded-xl p-8 text-left scroll-reveal relative overflow-hidden group">
+                <div class="absolute top-0 left-0 w-full h-1 gradient-api-line"></div>
+                <div class="flex items-center gap-2 mb-4">
+                    <div class="flex gap-2">
+                        <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                        <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                        <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                    </div>
+                    <span class="text-[#71717a] text-sm ml-2">api.PostVercl.online</span>
+                </div>
+                <code class="text-[#3b82f6] font-mono text-sm block space-y-2">
+                    <div class="hover:text-white transition-colors">
+                        <span class="text-[#71717a]">POST</span> /api/v1/content/schedule
+                    </div>
+                    <div class="hover:text-white transition-colors">
+                        <span class="text-[#71717a]">GET</span> /api/v1/analytics/performance
+                    </div>
+                    <div class="hover:text-white transition-colors">
+                        <span class="text-[#71717a]">GET</span> /api/v1/media/library
+                    </div>
+                </code>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="cta" class="py-20 px-6 gradient-cta-bg relative overflow-hidden">
+        <div class="absolute inset-0">
+            <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#3b82f6] opacity-5 rounded-full blur-3xl"></div>
+        </div>
+        <div class="max-w-3xl mx-auto text-center relative z-10 scroll-reveal">
+            <div class="inline-block mb-6 px-4 py-2 bg-[#3b82f6] bg-opacity-10 border border-[#3b82f6] border-opacity-30 rounded-full">
+                <i class="fas fa-clock text-[#3b82f6] mr-2"></i>
+                <span class="text-[#3b82f6] font-semibold">Coming Soon</span>
+            </div>
+            <h2 class="text-4xl md:text-5xl font-bold mb-6">Ready to scale your presence?</h2>
+            <p class="text-xl text-[#71717a] mb-8">
+                Get notified when we launch and be among the first to experience PostVercl.
+            </p>
+            <button onclick="openModal()" class="gradient-button text-white px-10 py-4 rounded-lg font-semibold text-lg transition-all glow inline-block transform hover:scale-105 shadow-lg shadow-[#3b82f6]/50">
+                <i class="fas fa-bell mr-2"></i>
+                Notify Me
+            </button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-[#1e293b] py-12 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center gap-2 mb-4">
+                        <img src="logo.png" alt="PostVercl Logo" class="h-8 w-8 object-contain">
+                        <span class="text-2xl font-bold text-white">PostVercl</span>
+                    </div>
+                    <p class="text-[#71717a] text-sm">
+                        Content management for the modern creator.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Product</h4>
+                    <ul class="space-y-2 text-sm text-[#71717a]">
+                        <li><a href="#features" class="hover:text-[#3b82f6] transition-colors">Features</a></li>
+                        <li><a href="#pricing" class="hover:text-[#3b82f6] transition-colors">Pricing</a></li>
+                        <li><a href="#api" class="hover:text-[#3b82f6] transition-colors">API</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Company</h4>
+                    <ul class="space-y-2 text-sm text-[#71717a]">
+                        <li><a href="#cta" class="hover:text-[#3b82f6] transition-colors">About</a></li>
+                        <li><a href="mailto:support@Postvercl.online" class="hover:text-[#3b82f6] transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Legal</h4>
+                    <ul class="space-y-2 text-sm text-[#71717a]">
+                        <li><a href="privacy.html" class="hover:text-[#3b82f6] transition-colors">Privacy Policy</a></li>
+                        <li><a href="terms.html" class="hover:text-[#3b82f6] transition-colors">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-[#1e293b] pt-8 text-center text-sm text-[#71717a]">
+                <p>&copy; 2024 PostVercl. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Coming Soon Modal -->
+    <div id="betaModal" class="modal-overlay" onclick="closeModalOnOverlay(event)">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-3xl font-bold text-white">Coming Soon</h2>
+                <button onclick="closeModal()" class="text-[#71717a] hover:text-white transition-colors">
+                    <i class="fas fa-times text-2xl"></i>
+                </button>
+            </div>
+            
+            <p class="text-[#71717a] mb-6 text-center">
+                Get notified when PostVercl launches. We'll send you an email as soon as we're ready!
+            </p>
+            
+            <form id="betaForm" action="https://formsubmit.co/ajax/mourxidyassine04@gmail.com" method="POST" class="space-y-5">
+                <input type="hidden" name="_subject" value="Coming Soon Notification - PostVercl">
+                <input type="hidden" name="_captcha" value="false">
+                
+                <div>
+                    <label for="name" class="block text-sm font-medium text-[#71717a] mb-2">Full Name *</label>
+                    <input 
+                        type="text" 
+                        id="name" 
+                        name="name" 
+                        class="form-input" 
+                        placeholder="John Doe"
+                        required
+                    >
+                </div>
+                
+                <div>
+                    <label for="email" class="block text-sm font-medium text-[#71717a] mb-2">Email Address *</label>
+                    <input 
+                        type="email" 
+                        id="email" 
+                        name="email" 
+                        class="form-input" 
+                        placeholder="john@example.com"
+                        required
+                    >
+                </div>
+                
+                <div class="flex gap-3">
+                    <button 
+                        type="submit" 
+                        id="submitBtn"
+                        class="flex-1 bg-[#3b82f6] hover:bg-[#2563eb] text-white px-6 py-3 rounded-lg font-semibold transition-all glow flex items-center justify-center gap-2"
+                    >
+                        Notify Me <i class="fas fa-bell"></i>
+                    </button>
+                    <button 
+                        type="button" 
+                        onclick="closeModal()" 
+                        class="px-6 py-3 border border-[#71717a] hover:border-[#3b82f6] text-white rounded-lg font-semibold transition-all"
+                    >
+                        Cancel
+                    </button>
+                </div>
+            </form>
+            
+            <div id="successMessage" class="hidden mt-6 p-4 bg-green-500 bg-opacity-20 border border-green-500 rounded-lg">
+                <p class="text-green-400 text-center">
+                    <i class="fas fa-check-circle mr-2"></i>
+                    Thank you! We'll notify you when we launch.
+                </p>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Modal Functions
+        function openModal() {
+            const modal = document.getElementById('betaModal');
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeModal() {
+            const modal = document.getElementById('betaModal');
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+            // Reset form after animation
+            setTimeout(() => {
+                const form = document.getElementById('betaForm');
+                form.reset();
+                form.style.display = 'block';
+                document.getElementById('successMessage').classList.add('hidden');
+                const submitButton = form.querySelector('button[type="submit"]');
+                if (submitButton) {
+                    submitButton.disabled = false;
+                    submitButton.innerHTML = 'Submit Request';
+                }
+            }, 300);
+        }
+        
+        function closeModalOnOverlay(event) {
+            if (event.target.id === 'betaModal') {
+                closeModal();
+            }
+        }
+        
+// Form Submission
+const betaForm = document.getElementById('betaForm');
+if (betaForm) {
+    betaForm.addEventListener('submit', async function(event) {
+        event.preventDefault();
+        
+        const form = event.target;
+        const submitButton = form.querySelector('button[type="submit"]');
+        const originalButtonText = submitButton.innerHTML;
+        
+        // Disable submit button and show loading state
+        submitButton.disabled = true;
+        submitButton.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Sending...';
+        
+        // Clear previous messages
+        document.getElementById('successMessage').classList.add('hidden');
+        
+        try {
+            const formData = new FormData(form);
+            
+            // Add additional form fields for better debugging
+            formData.append('_template', 'table');
+            formData.append('_replyto', form.email.value);
+            
+            const response = await fetch(form.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
+            
+            const result = await response.json();
+            
+            console.log('Form submission response:', result);
+            
+            if (response.ok || result.success) {
+                // Show success message
+                document.getElementById('successMessage').classList.remove('hidden');
+                form.style.display = 'none';
+                
+                // Close modal after 3 seconds
+                setTimeout(() => {
+                    closeModal();
+                }, 3000);
+            } else {
+                throw new Error(result.message || 'Form submission failed');
+            }
+        } catch (error) {
+            console.error('Form submission error:', error);
+            
+            // Show error message
+            const errorMessage = document.getElementById('successMessage');
+            errorMessage.className = 'mt-6 p-4 bg-red-500 bg-opacity-20 border border-red-500 rounded-lg';
+            errorMessage.innerHTML = '<p class="text-red-400 text-center"><i class="fas fa-exclamation-circle mr-2"></i>Something went wrong. Please try again or contact us directly.</p>';
+            errorMessage.classList.remove('hidden');
+            
+            // Re-enable submit button
+            submitButton.disabled = false;
+            submitButton.innerHTML = originalButtonText;
+        }
+    });
+}
+        
+        // Scroll Reveal Animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('revealed');
+                }
+            });
+        }, observerOptions);
+        
+        // Observe all scroll-reveal elements
+        document.addEventListener('DOMContentLoaded', () => {
+            const revealElements = document.querySelectorAll('.scroll-reveal');
+            revealElements.forEach(el => observer.observe(el));
+        });
+        
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href !== '#' && href !== '') {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                }
+            });
+        });
+        
+        // Close modal on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+</html>
+
