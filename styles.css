@@ -1,0 +1,211 @@
+* {
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background-color: #09090b;
+    overflow-x: hidden;
+}
+
+.glass-nav {
+    background: rgba(9, 9, 11, 0.85);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.gradient-primary {
+    background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+}
+
+.gradient-text {
+    background: linear-gradient(135deg, #f0f9ff 0%, #bae6fd 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.premium-card {
+    background: #18181b;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 1.5rem;
+    transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+}
+
+.premium-card:hover {
+    border-color: rgba(59, 130, 246, 0.3);
+    box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(59, 130, 246, 0.1);
+    transform: translateY(-2px);
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #3b82f6 0%, #6366f1 100%);
+    border: none;
+    transition: all 0.2s;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.25);
+}
+
+.btn-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 20px rgba(59, 130, 246, 0.35);
+}
+
+.btn-outline {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.2s;
+}
+
+.btn-outline:hover {
+    border-color: #3b82f6;
+    background: rgba(59, 130, 246, 0.05);
+}
+
+.badge-premium {
+    background: rgba(59, 130, 246, 0.1);
+    border: 1px solid rgba(59, 130, 246, 0.2);
+    border-radius: 100px;
+    padding: 0.25rem 1rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+.dashboard-preview {
+    background: #0f0f12;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 1.5rem;
+    overflow: hidden;
+    box-shadow: 0 25px 45px -12px rgba(0, 0, 0, 0.5);
+}
+
+.sidebar-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.625rem 1rem;
+    border-radius: 0.5rem;
+    color: #71717a;
+    transition: all 0.15s;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: default;
+}
+
+.sidebar-item:hover {
+    background: rgba(59, 130, 246, 0.08);
+    color: #e4e4e7;
+}
+
+.sidebar-item.active {
+    background: rgba(59, 130, 246, 0.12);
+    color: #3b82f6;
+    border-left: 2px solid #3b82f6;
+    margin-left: -1px;
+}
+
+.metric-card {
+    background: #18181b;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 1rem;
+    padding: 1.25rem;
+    transition: all 0.2s;
+}
+
+.metric-card:hover {
+    border-color: rgba(59, 130, 246, 0.2);
+    background: #1c1c20;
+}
+
+.scroll-reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.7s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+}
+
+.scroll-reveal.revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.stat-number {
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    background: linear-gradient(135deg, #fff 0%, #a1a1aa 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.progress-bar {
+    height: 4px;
+    background: #27272a;
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+    height: 100%;
+    border-radius: 2px;
+}
+
+.bg-orb {
+    position: fixed;
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: 0.15;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.orb-1 {
+    width: 500px;
+    height: 500px;
+    background: #3b82f6;
+    top: -200px;
+    right: -100px;
+}
+
+.orb-2 {
+    width: 400px;
+    height: 400px;
+    background: #8b5cf6;
+    bottom: -150px;
+    left: -100px;
+}
+
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: #18181b;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #3b82f6;
+    border-radius: 4px;
+}
+
+.oauth-button {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.2s;
+}
+
+.oauth-button:hover {
+    background: rgba(59, 130, 246, 0.1);
+    border-color: rgba(59, 130, 246, 0.3);
+}
+
+.demo-label {
+    position: absolute;
+    bottom: 0.75rem;
+    right: 1rem;
+    font-size: 0.65rem;
+    color: #52525b;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 0.25rem 0.75rem;
+    border-radius: 100px;
+    backdrop-filter: blur(4px);
+}
