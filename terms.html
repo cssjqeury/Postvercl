@@ -1,280 +1,272 @@
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Terms of Service - PostVercl</title>
+    <title>Privacy Policy - PostVercl</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #020617;
-        }
-        .glassmorphism {
-            background: rgba(2, 6, 23, 0.8);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(59, 130, 246, 0.1);
-        }
-    </style>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body class="text-white">
-    <!-- Navbar -->
-    <nav class="glassmorphism fixed top-0 left-0 right-0 z-50 px-6 py-4">
-        <div class="max-w-7xl mx-auto flex items-center justify-between">
-            <a href="index.html" class="flex items-center gap-3 hover:opacity-80 transition-opacity">
-                <img src="logo.png" alt="PostVercl Logo" class="h-9 w-9 object-contain">
-                <span class="text-2xl font-bold text-white">PostVercl</span>
-            </a>
-            <div class="hidden md:flex items-center space-x-8">
-                <a href="index.html#features" class="text-[#71717a] hover:text-[#3b82f6] transition-colors">Features</a>
-                <a href="index.html#pricing" class="text-[#71717a] hover:text-[#3b82f6] transition-colors">Pricing</a>
-                <a href="index.html#api" class="text-[#71717a] hover:text-[#3b82f6] transition-colors">API</a>
-                <a href="privacy.html" class="text-[#71717a] hover:text-[#3b82f6] transition-colors">Privacy</a>
+
+<body class="text-white antialiased">
+    <div class="orb-1 bg-orb"></div>
+    <div class="orb-2 bg-orb"></div>
+
+    <div class="relative z-10">
+        <!-- Navigation -->
+        <nav class="glass-nav fixed top-0 left-0 w-full z-50 px-6 py-4">
+            <div class="max-w-7xl mx-auto flex items-center justify-between">
+                <a href="index.html" class="flex items-center gap-3 hover:opacity-80 transition-opacity">
+                    <img src="logo.png" alt="PostVercl Logo" class="w-9 h-9">
+                    <span
+                        class="text-xl font-semibold tracking-tight bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">PostVercl</span>
+                </a>
+                <div class="hidden md:flex items-center gap-8 text-sm font-medium">
+                    <a href="index.html#features"
+                        class="text-gray-400 hover:text-white transition duration-200">Features</a>
+                    <a href="index.html#workflow"
+                        class="text-gray-400 hover:text-white transition duration-200">Workflow</a>
+                    <a href="index.html#dashboard"
+                        class="text-gray-400 hover:text-white transition duration-200">Studio</a>
+                    <a href="index.html#security"
+                        class="text-gray-400 hover:text-white transition duration-200">Security</a>
+                    <a href="index.html#pricing"
+                        class="text-gray-400 hover:text-white transition duration-200">Pricing</a>
+                    <a href="index.html#access" class="btn-primary px-4 py-1.5 rounded-full text-sm font-medium"
+                        style="background: linear-gradient(135deg, #3b82f6 0%, #6366f1 100%);">Apply for access</a>
+                </div>
             </div>
-            <button class="md:hidden text-[#71717a] hover:text-[#3b82f6]">
-                <i class="fas fa-bars text-xl"></i>
-            </button>
-        </div>
-    </nav>
+        </nav>
 
-    <!-- Main Content -->
-    <main class="pt-32 pb-20 px-6">
-        <div class="max-w-4xl mx-auto">
-            <h1 class="text-5xl font-bold mb-4">Terms of Service</h1>
-            <p class="text-[#71717a] mb-12">Last updated: January 2026</p>
+        <!-- Main Content -->
+        <main class="pt-32 pb-20 px-6">
+            <div class="max-w-4xl mx-auto">
+                <!-- Header -->
+                <div class="text-center mb-12 scroll-reveal">
+                    <div class="inline-flex items-center gap-2 badge-premium mb-4">
+                        <i class="fas fa-shield-alt text-blue-400 text-xs"></i>
+                        <span>Legal</span>
+                    </div>
+                    <h1 class="text-5xl md:text-6xl font-bold tracking-tight mb-4">Privacy Policy</h1>
+                    <p class="text-gray-400">Last updated: April 2026</p>
+                </div>
 
-            <div class="space-y-12">
-                <!-- Agreement to Terms -->
-                <section>
-                    <h2 class="text-3xl font-bold mb-4">1. Agreement to Terms</h2>
-                    <p class="text-[#71717a] leading-relaxed">
-                        By accessing or using PostVercl's services, you agree to be bound by these Terms of Service ("Terms"). If you disagree with any part of these terms, you may not access or use our services.
-                    </p>
-                </section>
-
-                <!-- Description of Service -->
-                <section>
-                    <h2 class="text-3xl font-bold mb-4">2. Description of Service</h2>
-                    <p class="text-[#71717a] leading-relaxed">
-                        PostVercl is a content management platform that enables users to manage, optimize, and schedule content for TikTok. Our services include direct publishing capabilities, analytics tools, and media storage solutions.
-                    </p>
-                </section>
-
-                <!-- User Accounts -->
-                <section>
-                    <h2 class="text-3xl font-bold mb-4">3. User Accounts</h2>
-                    <div class="space-y-4">
-                        <p class="text-[#71717a] leading-relaxed">
-                            To use certain features of our service, you must register for an account. You agree to:
+                <div class="space-y-8 scroll-reveal">
+                    <!-- Introduction -->
+                    <section class="premium-card p-8 legal-section">
+                        <h2>Introduction</h2>
+                        <p class="text-gray-400 leading-relaxed">
+                            PostVercl ("we," "our," or "us") is committed to protecting your privacy. This Privacy
+                            Policy explains how we collect, use, disclose, and safeguard your information when you use
+                            our content management platform and services.
                         </p>
-                        <ul class="list-disc list-inside space-y-2 text-[#71717a] leading-relaxed ml-4">
-                            <li>Provide accurate, current, and complete information during registration</li>
-                            <li>Maintain and promptly update your account information</li>
-                            <li>Maintain the security of your account credentials</li>
-                            <li>Accept responsibility for all activities that occur under your account</li>
-                            <li>Notify us immediately of any unauthorized use of your account</li>
+                    </section>
+
+                    <!-- TikTok API Integration -->
+                    <section class="premium-card p-8 legal-section border-l-4 border-l-blue-500">
+                        <h2>TikTok API Integration</h2>
+                        <p class="text-gray-400 leading-relaxed mb-4">
+                            PostVercl uses TikTok API Scopes (<code
+                                class="text-blue-400 bg-blue-500/10 px-1.5 py-0.5 rounded text-sm">user.info.basic</code>,
+                            <code
+                                class="text-blue-400 bg-blue-500/10 px-1.5 py-0.5 rounded text-sm">video.publish</code>)
+                            to allow users to manage their profiles and schedule content. We do not store TikTok login
+                            credentials; all authentication is handled via TikTok's secure OAuth 2.0 servers.
+                        </p>
+                        <p class="text-gray-400 leading-relaxed">
+                            We do not sell or share user data with third parties. All data transmitted between PostVercl
+                            and TikTok's servers is encrypted and handled in accordance with TikTok's API Terms of
+                            Service and our own security standards.
+                        </p>
+                    </section>
+
+                    <!-- Information We Collect -->
+                    <section class="premium-card p-8 legal-section">
+                        <h2>Information We Collect</h2>
+                        <div class="space-y-5">
+                            <div>
+                                <h3>Account Information</h3>
+                                <p class="text-gray-400 leading-relaxed">When you create an account, we collect your
+                                    email address and any profile information you choose to provide.</p>
+                            </div>
+                            <div>
+                                <h3>Content Data</h3>
+                                <p class="text-gray-400 leading-relaxed">We store content you upload to our Media Cloud,
+                                    including videos, images, and metadata associated with your scheduled posts.</p>
+                            </div>
+                            <div>
+                                <h3>Analytics Data</h3>
+                                <p class="text-gray-400 leading-relaxed">We collect and process analytics data from
+                                    TikTok's API to provide you with performance insights and statistics about your
+                                    content.</p>
+                            </div>
+                            <div>
+                                <h3>Usage Data</h3>
+                                <p class="text-gray-400 leading-relaxed">We automatically collect information about how
+                                    you interact with our platform, including IP addresses, browser types, and access
+                                    times.</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- How We Use Your Information -->
+                    <section class="premium-card p-8 legal-section">
+                        <h2>How We Use Your Information</h2>
+                        <ul class="list-disc list-inside space-y-2 text-gray-400 leading-relaxed ml-2">
+                            <li>To provide, maintain, and improve our services</li>
+                            <li>To schedule and publish content to your TikTok account</li>
+                            <li>To generate analytics reports and performance insights</li>
+                            <li>To communicate with you about your account and our services</li>
+                            <li>To detect, prevent, and address technical issues and security threats</li>
+                            <li>To comply with legal obligations and enforce our Terms of Service</li>
                         </ul>
-                    </div>
-                </section>
+                    </section>
 
-                <!-- Acceptable Use -->
-                <section class="bg-[#0f172a] border border-[#1e293b] rounded-xl p-8">
-                    <h2 class="text-3xl font-bold mb-4">4. Acceptable Use</h2>
-                    <p class="text-[#71717a] leading-relaxed mb-4">
-                        You agree to use PostVercl's services only for lawful purposes and in accordance with these Terms. You are strictly prohibited from using PostVercl for:
-                    </p>
-                    <ul class="list-disc list-inside space-y-2 text-[#71717a] leading-relaxed ml-4 mb-6">
-                        <li><strong>Spam:</strong> Sending unsolicited messages or content to users</li>
-                        <li><strong>Harassment:</strong> Engaging in any form of harassment, bullying, or abusive behavior</li>
-                        <li><strong>Unoriginal Content:</strong> Distributing content that violates TikTok's Community Guidelines, including but not limited to:
-                            <ul class="list-circle list-inside ml-6 mt-2 space-y-1">
-                                <li>Copyright infringement or unauthorized use of others' content</li>
-                                <li>Misinformation or deceptive content</li>
-                                <li>Content that promotes illegal activities</li>
-                                <li>Content that violates intellectual property rights</li>
-                            </ul>
-                        </li>
-                        <li>Any activity that violates applicable laws or regulations</li>
-                        <li>Attempting to gain unauthorized access to our systems or other users' accounts</li>
-                        <li>Interfering with or disrupting the integrity or performance of our services</li>
-                    </ul>
-                    <div class="bg-[#020617] border border-[#ef4444] rounded-lg p-6">
-                        <p class="text-[#ef4444] font-semibold mb-2">⚠️ Violation Consequences</p>
-                        <p class="text-[#71717a] leading-relaxed">
-                            Violation of these terms may result in immediate suspension or termination of your account, and we reserve the right to report illegal activities to law enforcement authorities.
+                    <!-- Data Sharing and Disclosure -->
+                    <section class="premium-card p-8 legal-section">
+                        <h2>Data Sharing and Disclosure</h2>
+                        <p class="text-gray-400 leading-relaxed mb-4">
+                            We do not sell, trade, or rent your personal information to third parties. We may share your
+                            information only in the following circumstances:
                         </p>
-                    </div>
-                </section>
+                        <ul class="list-disc list-inside space-y-2 text-gray-400 leading-relaxed ml-2">
+                            <li><strong class="text-white">Service Providers:</strong> We may share data with trusted
+                                service providers who assist us in operating our platform, subject to strict
+                                confidentiality agreements.</li>
+                            <li><strong class="text-white">Legal Requirements:</strong> We may disclose information if
+                                required by law or in response to valid legal requests.</li>
+                            <li><strong class="text-white">Business Transfers:</strong> In the event of a merger,
+                                acquisition, or sale of assets, your information may be transferred as part of that
+                                transaction.</li>
+                        </ul>
+                    </section>
 
-                <!-- TikTok Integration -->
-                <section>
-                    <h2 class="text-3xl font-bold mb-4">5. TikTok Integration</h2>
-                    <p class="text-[#71717a] leading-relaxed mb-4">
-                        PostVercl integrates with TikTok's API to provide content management services. By using our service, you agree to:
-                    </p>
-                    <ul class="list-disc list-inside space-y-2 text-[#71717a] leading-relaxed ml-4">
-                        <li>Comply with TikTok's Terms of Service and Community Guidelines</li>
-                        <li>Maintain the security of your TikTok account credentials</li>
-                        <li>Use only content that you own or have proper authorization to publish</li>
-                        <li>Accept that PostVercl is not responsible for TikTok's platform policies or changes</li>
-                    </ul>
-                </section>
-
-                <!-- Intellectual Property -->
-                <section>
-                    <h2 class="text-3xl font-bold mb-4">6. Intellectual Property</h2>
-                    <div class="space-y-4">
-                        <div>
-                            <h3 class="text-xl font-semibold mb-2">Our Content</h3>
-                            <p class="text-[#71717a] leading-relaxed">
-                                All content, features, and functionality of PostVercl, including but not limited to text, graphics, logos, and software, are owned by PostVercl and are protected by international copyright, trademark, and other intellectual property laws.
+                    <!-- Data Retention and Deletion -->
+                    <section class="premium-card p-8 legal-section bg-gradient-to-br from-blue-500/5 to-purple-500/5">
+                        <h2>Data Retention and Deletion</h2>
+                        <p class="text-gray-400 leading-relaxed mb-4">
+                            We retain your personal information for as long as necessary to provide our services and
+                            fulfill the purposes described in this Privacy Policy. We will delete your data when:
+                        </p>
+                        <ul class="list-disc list-inside space-y-2 text-gray-400 leading-relaxed ml-2 mb-6">
+                            <li>You request deletion of your account</li>
+                            <li>Your account has been inactive for an extended period</li>
+                            <li>We are required to do so by law</li>
+                        </ul>
+                        <div class="bg-[#0a0a0c] border border-blue-500/20 rounded-xl p-6">
+                            <h3 class="text-blue-400 mb-2">Request Data Deletion</h3>
+                            <p class="text-gray-400 leading-relaxed mb-3">
+                                You have the right to request deletion of your personal data at any time. To submit a
+                                data deletion request, please contact us at:
+                            </p>
+                            <p class="text-lg">
+                                <a href="mailto:support@postvercl.online?subject=Data Deletion Request"
+                                    class="text-blue-400 hover:text-blue-300 transition font-mono">support@postvercl.online</a>
+                            </p>
+                            <p class="text-gray-500 text-sm mt-3">
+                                We will process your request within 30 days and confirm once your data has been
+                                permanently deleted from our systems.
                             </p>
                         </div>
-                        <div>
-                            <h3 class="text-xl font-semibold mb-2">Your Content</h3>
-                            <p class="text-[#71717a] leading-relaxed">
-                                You retain ownership of all content you upload to PostVercl. By uploading content, you grant us a limited, non-exclusive license to store, process, and transmit your content solely for the purpose of providing our services.
-                            </p>
-                        </div>
-                    </div>
-                </section>
+                    </section>
 
-                <!-- Payment Terms -->
-                <section>
-                    <h2 class="text-3xl font-bold mb-4">7. Payment Terms</h2>
-                    <p class="text-[#71717a] leading-relaxed mb-4">
-                        During our beta period, access to PostVercl may be provided at no charge. Future pricing and payment terms will be communicated prior to any changes. You agree to:
-                    </p>
-                    <ul class="list-disc list-inside space-y-2 text-[#71717a] leading-relaxed ml-4">
-                        <li>Provide accurate payment information</li>
-                        <li>Authorize us to charge your payment method for applicable fees</li>
-                        <li>Pay all fees associated with your account</li>
-                        <li>Accept that all fees are non-refundable unless otherwise stated</li>
-                    </ul>
-                </section>
-
-                <!-- Service Availability -->
-                <section>
-                    <h2 class="text-3xl font-bold mb-4">8. Service Availability</h2>
-                    <p class="text-[#71717a] leading-relaxed">
-                        We strive to maintain high availability of our services but do not guarantee uninterrupted or error-free operation. We reserve the right to modify, suspend, or discontinue any part of our services at any time, with or without notice. We are not liable for any loss or damage resulting from service interruptions.
-                    </p>
-                </section>
-
-                <!-- Limitation of Liability -->
-                <section>
-                    <h2 class="text-3xl font-bold mb-4">9. Limitation of Liability</h2>
-                    <p class="text-[#71717a] leading-relaxed mb-4">
-                        TO THE MAXIMUM EXTENT PERMITTED BY LAW, PostVercl SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, INCLUDING BUT NOT LIMITED TO LOSS OF PROFITS, DATA, OR USE, ARISING OUT OF OR RELATING TO YOUR USE OF OUR SERVICES.
-                    </p>
-                    <p class="text-[#71717a] leading-relaxed">
-                        Our total liability for any claims arising from or related to these Terms or our services shall not exceed the amount you paid to us in the twelve (12) months preceding the claim.
-                    </p>
-                </section>
-
-                <!-- Indemnification -->
-                <section>
-                    <h2 class="text-3xl font-bold mb-4">10. Indemnification</h2>
-                    <p class="text-[#71717a] leading-relaxed">
-                        You agree to indemnify, defend, and hold harmless PostVercl and its officers, directors, employees, and agents from and against any claims, liabilities, damages, losses, and expenses, including reasonable attorneys' fees, arising out of or in any way connected with your use of our services, violation of these Terms, or infringement of any rights of another.
-                    </p>
-                </section>
-
-                <!-- Termination -->
-                <section>
-                    <h2 class="text-3xl font-bold mb-4">11. Termination</h2>
-                    <div class="space-y-4">
-                        <p class="text-[#71717a] leading-relaxed">
-                            We may terminate or suspend your account and access to our services immediately, without prior notice, for any reason, including but not limited to:
+                    <!-- Security -->
+                    <section class="premium-card p-8 legal-section">
+                        <h2>Security</h2>
+                        <p class="text-gray-400 leading-relaxed">
+                            We implement industry-standard security measures to protect your information, including
+                            encryption, secure authentication protocols, and regular security audits. However, no method
+                            of transmission over the internet or electronic storage is 100% secure, and we cannot
+                            guarantee absolute security.
                         </p>
-                        <ul class="list-disc list-inside space-y-2 text-[#71717a] leading-relaxed ml-4">
-                            <li>Violation of these Terms of Service</li>
-                            <li>Fraudulent, abusive, or illegal activity</li>
-                            <li>Non-payment of fees (if applicable)</li>
-                            <li>Extended period of account inactivity</li>
+                    </section>
+
+                    <!-- Your Rights -->
+                    <section class="premium-card p-8 legal-section">
+                        <h2>Your Rights</h2>
+                        <p class="text-gray-400 leading-relaxed mb-3">You have the right to:</p>
+                        <ul class="list-disc list-inside space-y-1 text-gray-400 leading-relaxed ml-2">
+                            <li>Access and receive a copy of your personal data</li>
+                            <li>Rectify inaccurate or incomplete data</li>
+                            <li>Request deletion of your personal data</li>
+                            <li>Object to processing of your personal data</li>
+                            <li>Request restriction of processing</li>
+                            <li>Data portability</li>
+                            <li>Withdraw consent at any time</li>
                         </ul>
-                        <p class="text-[#71717a] leading-relaxed">
-                            Upon termination, your right to use our services will immediately cease. We may delete your account and data, subject to our Privacy Policy.
+                    </section>
+
+                    <!-- Changes to This Policy -->
+                    <section class="premium-card p-8 legal-section">
+                        <h2>Changes to This Privacy Policy</h2>
+                        <p class="text-gray-400 leading-relaxed">
+                            We may update this Privacy Policy from time to time. We will notify you of any changes by
+                            posting the new Privacy Policy on this page and updating the "Last updated" date. You are
+                            advised to review this Privacy Policy periodically for any changes.
                         </p>
-                    </div>
-                </section>
+                    </section>
 
-                <!-- Changes to Terms -->
-                <section>
-                    <h2 class="text-3xl font-bold mb-4">12. Changes to Terms</h2>
-                    <p class="text-[#71717a] leading-relaxed">
-                        We reserve the right to modify these Terms at any time. We will notify users of material changes by posting the updated Terms on this page and updating the "Last updated" date. Your continued use of our services after such modifications constitutes acceptance of the updated Terms.
-                    </p>
-                </section>
-
-                <!-- Governing Law -->
-                <section>
-                    <h2 class="text-3xl font-bold mb-4">13. Governing Law</h2>
-                    <p class="text-[#71717a] leading-relaxed">
-                        These Terms shall be governed by and construed in accordance with the laws of the jurisdiction in which PostVercl operates, without regard to its conflict of law provisions.
-                    </p>
-                </section>
-
-                <!-- Contact Information -->
-                <section>
-                    <h2 class="text-3xl font-bold mb-4">14. Contact Information</h2>
-                    <p class="text-[#71717a] leading-relaxed mb-4">
-                        If you have any questions about these Terms of Service, please contact us at:
-                    </p>
-                    <p class="mt-4">
-                        <a href="mailto:support@Postvercl.online" class="text-[#3b82f6] hover:underline text-lg">support@Postvercl.online</a>
-                    </p>
-                </section>
-            </div>
-        </div>
-    </main>
-
-    <!-- Footer -->
-    <footer class="border-t border-[#1e293b] py-12 px-6">
-        <div class="max-w-7xl mx-auto">
-            <div class="grid md:grid-cols-4 gap-8 mb-8">
-                <div>
-                    <div class="flex items-center gap-2 mb-4">
-                        <img src="logo.png" alt="PostVercl Logo" class="h-8 w-8 object-contain">
-                        <span class="text-2xl font-bold text-white">PostVercl</span>
-                    </div>
-                    <p class="text-[#71717a] text-sm">
-                        Content management for the modern creator.
-                    </p>
-                </div>
-                <div>
-                    <h4 class="font-semibold mb-4">Product</h4>
-                    <ul class="space-y-2 text-sm text-[#71717a]">
-                        <li><a href="index.html#features" class="hover:text-[#3b82f6] transition-colors">Features</a></li>
-                        <li><a href="index.html#pricing" class="hover:text-[#3b82f6] transition-colors">Pricing</a></li>
-                        <li><a href="index.html#api" class="hover:text-[#3b82f6] transition-colors">API</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="font-semibold mb-4">Company</h4>
-                    <ul class="space-y-2 text-sm text-[#71717a]">
-                        <li><a href="index.html#cta" class="hover:text-[#3b82f6] transition-colors">About</a></li>
-                        <li><a href="mailto:support@Postvercl.online" class="hover:text-[#3b82f6] transition-colors">Contact</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="font-semibold mb-4">Legal</h4>
-                    <ul class="space-y-2 text-sm text-[#71717a]">
-                        <li><a href="privacy.html" class="hover:text-[#3b82f6] transition-colors">Privacy Policy</a></li>
-                        <li><a href="terms.html" class="hover:text-[#3b82f6] transition-colors">Terms of Service</a></li>
-                    </ul>
+                    <!-- Contact Us -->
+                    <section class="premium-card p-8 legal-section text-center">
+                        <i class="fas fa-envelope text-blue-400 text-3xl mb-4"></i>
+                        <h2>Contact Us</h2>
+                        <p class="text-gray-400 leading-relaxed mb-3">
+                            If you have any questions about this Privacy Policy, please contact us at:
+                        </p>
+                        <p>
+                            <a href="mailto:support@postvercl.online"
+                                class="text-blue-400 hover:text-blue-300 transition text-lg font-medium">support@postvercl.online</a>
+                        </p>
+                    </section>
                 </div>
             </div>
-            <div class="border-t border-[#1e293b] pt-8 text-center text-sm text-[#71717a]">
-                <p>&copy; 2026 PostVercl. All rights reserved.</p>
+        </main>
+
+        <!-- Footer -->
+        <footer class="border-t border-white/5 py-12 px-6">
+            <div
+                class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6 text-sm text-gray-500">
+                <div class="flex items-center gap-2">
+                    <img src="logo.png" alt="PostVercl Logo" class="w-7 h-7">
+                    <span class="font-medium text-gray-300">PostVercl</span>
+                </div>
+                <div class="flex gap-8">
+                    <a href="privacy.html" class="hover:text-white transition">Privacy</a>
+                    <a href="terms.html" class="hover:text-white transition">Terms</a>
+                    <a href="mailto:support@postvercl.online" class="hover:text-white transition">Contact</a>
+                </div>
+                <div>© 2026 PostVercl — All rights reserved</div>
             </div>
-        </div>
-    </footer>
+        </footer>
+    </div>
+
+    <script>
+        // Scroll reveal
+        const reveals = document.querySelectorAll('.scroll-reveal');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('revealed'); });
+        }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
+        reveals.forEach(r => observer.observe(r));
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href && href !== '#') {
+                    e.preventDefault();
+                    document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
 </body>
+
 </html>
-
-
